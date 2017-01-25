@@ -37,35 +37,31 @@
  */
 public class Arrays1 {
 
-    public static void main(String[] args) {
-        int nums[] = new int[10];
-        int mayor = Integer.MIN_VALUE;
-        int posicion = 0;
+    public static void main (String[] args) {
 
-        // Cargar array con datos
-        for (int i = 0; i < nums.length; i++) {
-            // Se carga el array con valores aleatorios entre 1 y 100
-            nums[i] = (int)(Math.random()*100+1);
-        }
+    mayorEntero();
 
-        // Buscar elemento mayor y la posición
-        for (int i = 0; i < nums.length; i++) {
-            // Si el elemento nums[i] supera el mayor valor guardado
-            // se guarda con mayor valor y se guarda la posición 'i'
-            if(nums[i] > mayor){
-                mayor = nums[i];
+    }
+
+
+
+    static int mayorEntero(){
+        int mayor = 0, posicion = 0;
+        int array [] = new int [10];
+
+        for (int i = 0 ; i < array.length; i++){
+            array [i] = (int) (Math.random() * 100 + 1);
+            if (array [i] > mayor){
+                mayor = array[i];
                 posicion = i;
             }
-        }
 
-        // Impresión del array
-        for (int i = 0; i < nums.length; i++) {
-            System.out.printf("%3d", nums[i]);
         }
-        System.out.println();   // Salto de línea
+        return mayor;
+    }
 
-        // Impresión de resultados
-        System.out.println("Mayor: "+mayor);
-        System.out.println("Posición: "+posicion);
+    static void imprimirArray (){
+        mayorEntero();
+
     }
 }
