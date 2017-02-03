@@ -15,7 +15,15 @@ public class Cancion {
 
     //Constructores
 
-    //Constuctor designado
+    /**
+     * Constructor designado con todos los parametros
+     * @param titulo String titulo de la Cancion
+     * @param autor String autor de la Cancion
+     * @param estilo String estilo de la Cancion
+     * @param formato String formato de la Cancion
+     * @param duracion String duracion de la Cancion
+     */
+
     public Cancion (String titulo, String autor, String estilo, String formato, int duracion){
 
         this.titulo = titulo;
@@ -25,7 +33,10 @@ public class Cancion {
         this.duracion = duracion;
 
     }
-
+    /**
+     * Constructor sin parámetros. Se ponen los string a ""
+     * menos el String formato que se pone a MP3 y el int duracion que se pone a 0.
+     */
     public Cancion (){
         this("","","","MP3",0);
 
