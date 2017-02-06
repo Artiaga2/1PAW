@@ -72,7 +72,7 @@ public class Cuenta {
 
     public double extraerDinero (double dinero){
         if (dinero <= 0) {
-            System.out.println("No se ha ingresado nada");
+            System.out.println("No puede sacar ese dinero");
         }else if(this.saldoActual < dinero + 0.90){
             System.out.println("No tiene suficiente dinero");
         }else{
