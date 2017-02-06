@@ -1,5 +1,7 @@
 package com.artiaga;
 
+import java.util.Scanner;
+
 /**
  * Created by artiaga on 3/2/17.
  */
@@ -89,16 +91,23 @@ public class Cancion {
         }
     }
 
-    @Override
-    public String toString() {
+    public String toSexagesimal(int duracion){
         int min, seg;
         min = duracion / 60;
-        seg = duracion - min * 60;
+        seg = duracion % 60;
+        String resultado = min + " minutos y " +  seg + " segundos ";
+
+        return resultado;
+    }
+
+    //Las funciones solo pueden tener 1 funcion
+    @Override
+    public String toString() {
         return "titulo: " + titulo +
                 ", autor: " + autor +
                 ", estilo: " + estilo +
                 ", formato: " + formato +
-                ", duracion: " + min + " minutos y " + seg + " segundos" +
+                ", duracion: " + toSexagesimal(this.getDuracion()) +
                 '}';
     }
 }
