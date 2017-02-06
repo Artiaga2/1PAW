@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Cuenta.iml" filepath="$PROJECT_DIR$/Cuenta.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Cuenta-oop.iml" filepath="$PROJECT_DIR$/Cuenta-oop.iml" />
     </modules>
   </component>
 </project>
