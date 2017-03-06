@@ -12,14 +12,16 @@ public class Main {
 
         Point p4 = new Point(1,3);
 
-        double distancia = 0.0;
+        double distanciaa = 0.0;
         
-        distancia += p1.distancia(p2);
-        distancia += p2.distancia(p3);
-        distancia += p3.distancia(p4);
-        distancia += p4.distancia(p1);
+        distanciaa += p1.distancia(p2);
+        distanciaa+= p2.distancia(p3);
+        distanciaa += p3.distancia(p4);
+        distanciaa += p4.distancia(p1);
 
 
-        System.out.println(distancia);
+
+        System.out.println(distanciaa);
+        System.out.println(Point.distancePath(p1,p2,p3,p4));
     }
 }

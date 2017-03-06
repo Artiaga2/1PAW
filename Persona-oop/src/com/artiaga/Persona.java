@@ -1,5 +1,7 @@
 package com.artiaga;
 
+import java.text.DecimalFormat;
+
 import static java.lang.Math.*;
 
 /**
@@ -32,7 +34,7 @@ public class Persona {
         this.setSexo(sexo);
         this.setPeso(peso);
         this.setAltura(altura);
-        this.dni = gerenaDni();
+        this.dni = generaDni();
     }
 
     //Accesores
@@ -87,41 +89,54 @@ public class Persona {
         if (altura < 0) {
             this.altura = 0;
         }else{
-            this.altura = altura;
+            this.altura = altura / 100;
         }
     }
 
     //Metodos
 
     public double calcularIMC(){
-        return this.getPeso() / pow(this.getAltura(), 2);
+
+        if (altura < 0 || peso < 0){
+            this.altura = 0;
+            this.peso = 0;
+        }
+            return peso / pow(this.getAltura(), 2);
 
     }
 
-    public boolean isOld(){
+    /*public boolean isOld(){
         return this.edad >= 18;
 
-    }
+    }*/
 
     @Override
     public String toString() {
+        String mayorEdad = (edad > 18)?"Si":"No";
+        DecimalFormat formateo  = new DecimalFormat("###.###");
         return "Persona{" +
-                "nombre='" + nombre + '\'' +
-                ", edad=" + edad +
-                ", dni='" + dni + '\'' +
-                ", sexo=" + sexo +
-                ", peso=" + peso +
-                ", altura=" + altura +
-                ", IMC=" + calcularIMC() +
+                "nombre = " + nombre +
+                ", edad = " + edad +
+                ", dni = " + dni  +
+                ", sexo = " + sexo +
+                ", peso = " + peso +
+                ", altura = " + altura + "m" +
+                ", mayor de edad = " + mayorEdad +
+                ", IMC = " + String.format("%.3f", calcularIMC()) + " IMC= " + formateo.format(calcularIMC()) +
                 '}';
     }
 
-    private String gerenaDni(){
-        int letra = Math.random() * 10;
-        String DNI = this.dni;
+    private String generaDni(){
+        String letradni = "";
+        int letra;
+        for (int i = 0; i < 8 ; i++) {
+            letradni +=(int)( Math.random() * 9);
+        }
+
         char LETRA_DNI[] = {'T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'};
-        letra = Integer.valueOf(DNI) % 23;
-        return DNI + "-" + LETRA_DNI [letra];
+        letra= Integer.valueOf(letradni) % 23;
+        letradni += LETRA_DNI[letra];
+        return letradni;
 
 
 

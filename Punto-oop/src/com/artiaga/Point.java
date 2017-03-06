@@ -68,4 +68,16 @@ public class Point {
             }
         }
     }
+
+    public static double distancePath(Point...puntos){
+
+        double distance = 0.0;
+
+        for (int i = 0; i < puntos.length - 1; i++){
+            distance += puntos[i].distancia(puntos[i +1]);
+
+        }
+        return distance;
+
+    }
 }
