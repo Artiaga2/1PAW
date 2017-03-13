@@ -62,7 +62,7 @@ public class EmpleadosComerciales extends Empleados {
 
     //Funciones
 
-    public double SueldoComercial (){
+    public double sueldoComercial(){
 
         double plus = altasUltimoMes * 12;
         double plusMesesAnteriores = 0;
@@ -78,9 +78,6 @@ public class EmpleadosComerciales extends Empleados {
         }else if (altas >= 500){
             plusMesesAnteriores = (this.getSueldo() * 15) / 100;
 
-        }else{
-
-            this.getSueldo();
         }
 
 
@@ -88,4 +85,13 @@ public class EmpleadosComerciales extends Empleados {
 
         return this.getSueldo();
     }
+
+    public double sueldoComercialNeto() {
+
+       double sueldoNeto;
+        sueldoNeto = this.sueldoComercial() - ((this.sueldoComercial() * 12 ) / 100);
+
+        return sueldoNeto;
+    }
+
 }

@@ -4,13 +4,20 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        EmpleadosComerciales test1 = new EmpleadosComerciales();
-
-        test1.setAltasUltimoMes(20);
-        test1.setAltas(150);
+        EmpleadosOficina test1 = new EmpleadosOficina();
+        EmpleadosComerciales test2 = new EmpleadosComerciales();
 
 
-        System.out.println(test1.SueldoComercial());
+        test1.setAños(15);
+
+        System.out.println(test1.SueldoOficina());
+
+        test2.setAltasUltimoMes(20);
+        test2.setAltas(150);
+
+
+        System.out.println(test2.sueldoComercial());
+        System.out.println(test2.sueldoComercialNeto());
 
     }
 }
