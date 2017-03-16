@@ -89,7 +89,7 @@ public class EmpleadosComerciales extends Empleados {
     public double sueldoComercialNeto() {
 
        double sueldoNeto;
-        sueldoNeto = this.sueldoComercial() - ((this.sueldoComercial() * 12 ) / 100);
+        sueldoNeto = sueldoComercial() - ((sueldoComercial() * 12 ) / 100);
 
         return sueldoNeto;
     }

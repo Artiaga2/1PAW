@@ -3,7 +3,7 @@ package com.artiaga;
 /**
  * Created by artiaga on 9/3/17.
  */
-public class Empleados {
+public abstract class Empleados {
 
     private String nombre;
     private String apellidos;
