@@ -40,7 +40,11 @@ public class Lavadoras extends Electrodomesticos {
     }
 
     public void setVelocidadCentrifugado(double velocidadCentrifugado) {
-        this.velocidadCentrifugado = velocidadCentrifugado;
+        if (this. velocidadCentrifugado < 0){
+            System.out.println("anchura mal");
+        }else {
+            this.velocidadCentrifugado = velocidadCentrifugado / 60;
+        }
     }
 
     public boolean isSecadoras() {

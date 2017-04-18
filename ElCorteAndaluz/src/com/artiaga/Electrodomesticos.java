@@ -205,7 +205,7 @@ public class Electrodomesticos {
                 ", modelo='" + modelo + '\'' +
                 ", precioBase=" + precioBase +
                 ", consumoElectrico='" + consumoElectrico + '\'' +
-                ", altura=" + setAltura() + " metros" +
+                ", altura=" + altura + " metros" +
                 ", anchura=" + anchura + " metros" +
                 ", peso=" + peso + " Kilos" +
                 ", Precio Bruto=" + precioBruto() +
