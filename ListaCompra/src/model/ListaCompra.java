@@ -8,71 +8,96 @@ import java.util.Scanner;
  */
 public class ListaCompra {
 
-    public static  void showTasks(ArrayList<String> myTask){
+    private static ArrayList<Articulo> articleList = new ArrayList<>();
+
+    public static  void showArticle(){
 
         int index = 0;
 
-        for (String tasks : myTask){
-            System.out.println((index++) + "-" + tasks );
+        for (Articulo article : articleList){
+            System.out.println((index++) + "-" + article );
         }
     }
 
-    public static int showmenu(ArrayList<String> taskList){
+    public static int showmenu(){
         Scanner input = new Scanner(System.in);
         int option;
 
-        System.out.println("**********************");
-        System.out.println("* 1 - Ver tareas     *");
-        System.out.println("* 2 - Añadir tareas  *");
-        if (taskList.size() > 0) {
-            System.out.println("* 3 - Eliminar tarea *");
-        }
-        System.out.println("* 4 - Salir          *");
-        System.out.println("**********************");
-        System.out.println("*Opcion");
+        System.out.println("*******************************");
+        System.out.println("* 1 - Añadir producto         *");
+        System.out.println("* 2 - Eliminar producto       *");
+        System.out.println("* 3 - Mostrar lista artículos *");
+        System.out.println("* 4 - Consultar importe total *");
+        System.out.println("* 0 - Pagar                   *");
+        System.out.println("*******************************");
+        System.out.println("Opcion:");
 
         option = input.nextInt();
 
         return option;
     }
 
-    public static void addTask (ArrayList<String> taskList){
+    public static void addArticle(){
         Scanner input = new Scanner(System.in);
-        String task;
+        String nombre;
+        double precio;
 
         do {
-            System.out.println("Introduce nueva tarea");
-            task = input.nextLine();
+            System.out.println("Introduce el nombre del producto");
+            nombre = input.nextLine();
+            System.out.println("Introduce el precio del producto");
+            precio = input.nextDouble();
 
-        }while (task.length() == 0);
+        }while (nombre.length() == 0 || precio == 0);
 
-        taskList.add(task);
+        Articulo articulo = new Articulo();
+        articulo.setNombre(nombre);
+        articulo.setPrecio(precio);
+
+        articleList.add(articulo);
     }
 
-    public static void deleteTask(ArrayList<String> taskList){
+    public static void deleteArticle(){
         Scanner input = new Scanner(System.in);
 
         int index;
 
-        showTasks(taskList);
+        showArticle();
 
         do {
             System.out.println("Introducir el indice: ");
 
             index = input.nextInt();
-        }while(correctIndex(index,taskList));
+        }while(!correctIndex(index));
 
-        taskList.remove(index - 1);
+        articleList.remove(index);
 
     }
 
 
-    public static boolean correctIndex (int index, ArrayList<String> arrayList){
+    public static boolean correctIndex (int index){
 
-        if(index >=0 && index < arrayList.size()){
+        if(index >=0 && index < articleList.size()){
             return true;
-        }else{
-            return false;
-        }
+    }else{
+        return false;
     }
+    }
+
+    public static void showImport(){
+        double total = 0;
+
+        for (Articulo article : articleList)
+              {
+            total += article.getPrecio();
+        }
+
+
+         System.out.println("El importe total es: " + total + " €");
+
+    }
+
+
+
+
 }

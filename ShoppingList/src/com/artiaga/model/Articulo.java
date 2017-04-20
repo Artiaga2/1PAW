@@ -1,20 +1,14 @@
-package model;
+package com.artiaga.model;
 
 /**
- * Created by artiaga on 18/4/17.
+ * Created by artiaga on 20/4/17.
  */
 public class Articulo {
-
-    //Atributos
 
     private String nombre;
     private double precio;
 
-    //Conbstructores
-
-
-    public Articulo() {
-    }
+    //Constructor
 
     public Articulo(String nombre, double precio) {
         this.setNombre(nombre);
@@ -30,8 +24,12 @@ public class Articulo {
     }
 
     public void setNombre(String nombre) {
+        if(nombre.equals("") ){
+            this.nombre = "Sin nombre";
 
-        this.nombre = nombre;
+        }else {
+            this.nombre = nombre;
+        }
     }
 
     public double getPrecio() {
@@ -39,14 +37,19 @@ public class Articulo {
     }
 
     public void setPrecio(double precio) {
-        this.precio = precio;
+
+        if (precio < 0){
+            this.precio = 0.0;
+
+        }else {
+
+            this.precio = precio;
+        }
     }
 
     @Override
     public String toString() {
-        return "Articulo{" +
-                "nombre='" + nombre + '\'' +
-                ", precio=" + precio +
-                '}';
+        return "Articulo: " + nombre  +
+                " (" + precio + "€)";
     }
 }

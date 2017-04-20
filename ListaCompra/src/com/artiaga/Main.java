@@ -2,8 +2,6 @@ package com.artiaga;
 
 import model.ListaCompra;
 
-import java.util.ArrayList;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -14,27 +12,31 @@ public class Main {
         int option;
 
 
-        while((option = ListaCompra.showmenu(ListaCompra.tasklist) ) != 4){
+
+        while((option = ListaCompra.showmenu() )!= 5){
             switch (option){
                 case 1:
-                    ListaCompra.addTask(ListaCompra.tasklist);
+                    ListaCompra.addArticle();
                     break;
 
                 case 2:
-                    ListaCompra.deleteTask(ListaCompra.tasklist);
+                    ListaCompra.deleteArticle();
                     break;
 
                 case 3:
-                    ListaCompra.showTasks(ListaCompra.tasklist);
+                    ListaCompra.showArticle();
                     break;
 
                 case 4:
-                    ListaCompra.showImport(ListaCompra.tasklist);
+                    ListaCompra.showImport();
                     break;
 
                 case 0:
-                    ListaCompra.pay(ListaCompra.tasklist);
+                    ListaCompra.showArticle();
+                    ListaCompra.showImport();
+                    System.exit(0);
                     break;
+
                 default:
             }
         }
