@@ -160,4 +160,8 @@ public class Alumno implements Comparable {
         }
     };
 
+
+     Este compareTo de que me sirve si tengo estos 2
+
+
 }
