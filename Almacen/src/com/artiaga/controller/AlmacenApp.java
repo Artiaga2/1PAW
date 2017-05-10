@@ -2,7 +2,7 @@ package com.artiaga.controller;
 
 import com.artiaga.modelo.Articulo;
 
-import java.util.Collection;
+
 import java.util.Collections;
 import java.util.Scanner;
 
@@ -11,7 +11,7 @@ import java.util.Scanner;
  */
 public class AlmacenApp {
 
-    private void loadTestArticulo() {
+    public void loadTestArticulo() {
         Articulo.añadirArticulo( new Articulo("Pan", 'A', 1.00, 2.0,2 ));
         Articulo.añadirArticulo( new Articulo("Queso", 'B', 2.00, 3.0,4 ));
         Articulo.añadirArticulo( new Articulo("Patatas", 'C', 1.75, 0.75,3 ));
@@ -29,13 +29,19 @@ public class AlmacenApp {
                     LeerArticulo();
                     break;
                 case 2:
-                    radar.flightList();
+                    ordenarPorNombre();
                     break;
                 case 3:
-                    radar.flightListByAirline();
+                    ordenarPorCategoria();
                     break;
                 case 4:
-                    radar.flightListBySpeed();
+                    ordenarPorPrecio();
+                    break;
+                case 5:
+                    ordenarPorPeso();
+                    break;
+                case 6:
+                    ordenarPorVolumen();
                     break;
             }
         }
@@ -77,7 +83,7 @@ public class AlmacenApp {
             volumen = scanner.nextDouble();
         } while (volumen < 0.0);
 
-        Articulo.añadirArticulo( new Articulo(nombre, categoria, precio, peso, volumen);
+        Articulo.añadirArticulo( new Articulo(nombre, categoria, precio, peso, volumen));
 
     }
 
@@ -90,8 +96,8 @@ public class AlmacenApp {
         System.out.println("* 2 - Lista por Nombre     *");
         System.out.println("* 3 - Lista por Categoria  *");
         System.out.println("* 4 - Lista por Precio     *");
-        System.out.println("* 4 - Lista por Peso       *");
-        System.out.println("* 4 - Lista por Volumen    *");
+        System.out.println("* 5 - Lista por Peso       *");
+        System.out.println("* 6 - Lista por Volumen    *");
         System.out.println("* 0 - Salir                *");
         System.out.println("****************************");
         System.out.println("Opción: ");
@@ -111,8 +117,16 @@ public class AlmacenApp {
         }
     }
 
+    private void ordenarPorCategoria(){
+        Collections.sort(Articulo.getArticulos(), Articulo.comparadorPorCategoria);
+
+        for (Articulo articulo : Articulo.getArticulos())
+        {
+            System.out.println(articulo);
+        }
+    }
     private void ordenarPorPrecio(){
-        Collections.sort(Articulo.getArticulos(), Articulo.comparadorPorPrecio;
+        Collections.sort(Articulo.getArticulos(), Articulo.comparadorPorPrecio);
 
         for (Articulo articulo : Articulo.getArticulos())
         {
@@ -120,23 +134,15 @@ public class AlmacenApp {
         }
     }
     private void ordenarPorPeso(){
-        Collections.sort(Articulo.getArticulos(), Articulo.comparadorPorNombre);
+        Collections.sort(Articulo.getArticulos(), Articulo.comparadorPorPeso);
 
         for (Articulo articulo : Articulo.getArticulos())
         {
             System.out.println(articulo);
         }
     }
-    private void ordenarPorNombre(){
-        Collections.sort(Articulo.getArticulos(), Articulo.comparadorPorNombre);
-
-        for (Articulo articulo : Articulo.getArticulos())
-        {
-            System.out.println(articulo);
-        }
-    }
-    private void ordenarPorNombre(){
-        Collections.sort(Articulo.getArticulos(), Articulo.comparadorPorNombre);
+    private void ordenarPorVolumen(){
+        Collections.sort(Articulo.getArticulos(), Articulo.comparadorPorVolumen);
 
         for (Articulo articulo : Articulo.getArticulos())
         {
